@@ -22,7 +22,7 @@ for line in list:
 
     session = requests.session()  # <--- Crea la sesion
 
-    url = 'https://apisconsumer.000webhostapp.com/HamiltonRT/principal.php?cc='+aea
+    url = 'http://www.hamiltonrt.vendassh.online/Api/api.php?lista='+aea
 
     response = session.post(url)
     rpta = response.json()
